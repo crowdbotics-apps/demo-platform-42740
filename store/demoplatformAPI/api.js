@@ -8,6 +8,24 @@ function api_docs_schema_retrieve(payload) {
     params: { lang: payload.lang }
   })
 }
+function api_v1_horoscope_list(payload) {
+  return demoplatformAPI.get(`/api/v1/horoscope/`)
+}
+function api_v1_horoscope_create(payload) {
+  return demoplatformAPI.post(`/api/v1/horoscope/`, payload.data)
+}
+function api_v1_horoscope_retrieve(payload) {
+  return demoplatformAPI.get(`/api/v1/horoscope/${payload.id}/`)
+}
+function api_v1_horoscope_update(payload) {
+  return demoplatformAPI.put(`/api/v1/horoscope/${payload.id}/`, payload.data)
+}
+function api_v1_horoscope_partial_update(payload) {
+  return demoplatformAPI.patch(`/api/v1/horoscope/${payload.id}/`, payload.data)
+}
+function api_v1_horoscope_destroy(payload) {
+  return demoplatformAPI.delete(`/api/v1/horoscope/${payload.id}/`)
+}
 function api_v1_login_create(payload) {
   return demoplatformAPI.post(`/api/v1/login/`, payload.data)
 }
@@ -55,6 +73,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_horoscope_list,
+  api_v1_horoscope_create,
+  api_v1_horoscope_retrieve,
+  api_v1_horoscope_update,
+  api_v1_horoscope_partial_update,
+  api_v1_horoscope_destroy,
   api_v1_login_create,
   api_v1_signup_create,
   rest_auth_login_create,
