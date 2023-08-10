@@ -3,26 +3,31 @@ const styles = StyleSheet.create({
   safeArea: {
     height: "100%"
   },
+  headerImage: {
+    width: 120,
+    height: 23
+  },
   MVfceqLO: {
+    backgroundColor: "#fff",
     flex: 1,
-    backgroundColor: "#333333",
     borderRadius: 0,
     color: "#777777"
   },
   header: {
-    backgroundColor: "#fff",
     height: 50,
+    alignItems: "flex-start",
     justifyContent: "center",
-    alignItems: "center",
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    paddingHorizontal: 10,
+    backgroundColor: "#150A9A"
   },
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#0F5197"
+    color: "#150A9A"
   },
   button: {
-    backgroundColor: "#0F5197",
+    backgroundColor: "#150A9A",
     padding: 10,
     margin: 10,
     borderRadius: 5,
@@ -30,10 +35,11 @@ const styles = StyleSheet.create({
   },
   consoleResponseSection: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#b3b3b3",
     padding: 10,
     margin: 10,
-    borderRadius: 5
+    borderRadius: 5,
+    maxHeight: 200
   },
   consoleText: {
     fontSize: 16,
@@ -41,15 +47,32 @@ const styles = StyleSheet.create({
   },
   DjHOfaku: {
     color: "#fff",
-    fontSize: 16
+    fontSize: 20,
+    fontWeight: "700"
+  },
+  section: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#b3b3b3"
+  },
+  sectionImage: {
+    width: "100%",
+    height: 0,
+    borderRadius: 5,
+    marginTop: 10
+  },
+  sectionImage2: {
+    width: "100%",
+    height: 299,
+    borderRadius: 5
   }
 });
+
 export default {
   title: "Azure Ad Auth",
   copy: "Routes available",
   styles: styles,
   azureTenant: "shahraizali10yahoo.onmicrosoft.com",
-  azureClientId: "37515f77-f600-42ec-85a9-dcf8496d948c",
-  azureRedirectUri: "com.demo://com.demo/android/callback" // azureRedirectUri: "com.shahrtestdemodev67931://com.shahrtestdemodev67931/android/callback"
-
+  azureClientId: "37515f77-xxxx-xxxx-xxxx-dcf8496d948c", // see Readme for more info
+  azureRedirectUri: "com.shahrtestdemodev67931://com.shahrtestdemodev67931/android/callback" // see Readme for more info
 };

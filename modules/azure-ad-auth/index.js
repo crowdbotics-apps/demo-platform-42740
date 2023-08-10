@@ -1,9 +1,13 @@
+import { StyleSheet } from "react-native";
 import React, { useContext } from "react";
 import { OptionsContext } from "@options";
-import { SafeAreaView, ScrollView, View, Text, TouchableOpacity } from "react-native";
+import { ImageBackground, SafeAreaView, ScrollView, View, Text, TouchableOpacity } from "react-native";
 import AzureAuth from "react-native-azure-auth";
 
-function AzureADAuth() {
+function AzureADAuth(params) {
+  const {
+    navigation
+  } = params;
   const options = useContext(OptionsContext);
   const {
     styles,
@@ -14,7 +18,7 @@ function AzureADAuth() {
   const [accessToken, setAccessToken] = React.useState(null);
   const [user, setUser] = React.useState(null);
 
-  const fetchData = async () => {
+  const fetchData = async navigation => {
     const azureAuth = new AzureAuth({
       tenant: azureTenant,
       clientId: azureClientId,
@@ -32,6 +36,9 @@ function AzureADAuth() {
         path: "/me"
       });
       setUser(JSON.stringify(info, null, 2));
+      setTimeout(() => {
+        navigation.navigate("Untitled5");
+      }, 3000);
     } catch (error) {
       console.log(error);
     }
@@ -41,16 +48,25 @@ function AzureADAuth() {
       <View style={styles?.MVfceqLO}>
 
           <View style={styles?.header}>
-            <Text style={styles?.headerText}>Azure Active Directory</Text>
+            <ImageBackground style={styles?.headerImage} source={require("./assets/komatsu-logo.png")} resizeMode="cover"></ImageBackground>
           </View>
 
+          <View style={styles?.section}>
+            <Text style={styles?.headerText}>My Komatsu</Text>
+            <Text style={styles?.sectionText}>Welcome to your personalized experience</Text>
+          </View>
+          <View style={styles?.sectionContent}>
+            <ImageBackground style={styles?.sectionImage} source={require("./assets/hero_pc_en.jpg")} resizeMode="cover"></ImageBackground>
+            <ImageBackground style={styles?.sectionImage2} source={require("./assets/02.jpeg")} resizeMode="cover"></ImageBackground>
+          </View>
+          
           <TouchableOpacity style={styles?.button} onPress={() => {
-        fetchData();
+        fetchData(navigation);
       }}>
             <Text style={styles?.DjHOfaku}>Login with Azure AD</Text>
           </TouchableOpacity>
 
-          <ScrollView style={styles?.consoleResponseSection}>
+          <ScrollView style={[styles?.consoleResponseSection, _styles.fdfHasbd]}>
             <Text style={styles?.consoleText}>{user}</Text>
             <Text style={styles?.consoleText}>{accessToken}</Text>
           </ScrollView>
@@ -62,3 +78,9 @@ export default {
   title: "Azure Ad Auth",
   navigator: AzureADAuth
 };
+
+const _styles = StyleSheet.create({
+  fdfHasbd: {
+    backgroundColor: "#fff"
+  }
+});
