@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Horoscope
-admin.site.register(Horoscope)
+from .models import Item
+admin.site.register(Item)
 
 # Register your models here.

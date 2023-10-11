@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Horoscope,Horoscope,Horoscope
-from .serializers import HoroscopeSerializer,HoroscopeSerializer,HoroscopeSerializer
+from home.models import Item,Item,Item
+from .serializers import ItemSerializer,ItemSerializer,ItemSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -33,7 +33,7 @@ class LoginViewSet(ViewSet):
         user_serializer = UserSerializer(user)
         return Response({"token": token.key, "user": user_serializer.data})
 
-class HoroscopeViewSet(viewsets.ModelViewSet):
-    serializer_class = HoroscopeSerializer
+class ItemViewSet(viewsets.ModelViewSet):
+    serializer_class = ItemSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
-    queryset = Horoscope.objects.all()
+    queryset = Item.objects.all()
